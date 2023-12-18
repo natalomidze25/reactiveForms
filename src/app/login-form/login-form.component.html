@@ -1,0 +1,21 @@
+<form [formGroup]="loginForm" (submit)="submit()">
+  <label for="username">USERNAME:</label>
+  <input formControlName="username" id="username" type="text">
+  <ng-container
+    *ngIf="loginForm.controls['username'].invalid &&
+    (loginForm.controls['username'].dirty || loginForm.controls['username'].touched)">
+    <small style="color: red">username is required</small>
+  </ng-container>
+  <label for="password">PASSWORD</label>
+  <input formControlName="password" id="password" type="password">
+  <ng-container
+    *ngIf="loginForm.controls['password'].invalid &&
+    (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
+    <small style="color: red">password is required</small>
+  </ng-container>
+  <label for="rememberMe"></label>
+  <input formControlName="rememberMe" type="checkbox" id="rememberMe">
+  <button>SUBMIT</button>
+</form>
+
+<a routerLink="/registration" class="registration-link">REGISTRATION</a>

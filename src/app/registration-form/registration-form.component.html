@@ -1,0 +1,67 @@
+<form [formGroup]="registrationForm" (ngSubmit)="register()">
+  <label for="name">Name:</label>
+  <input id="name" type="text" formControlName="firstName">
+  <ng-container
+    *ngIf="registrationForm.controls['firstName'].invalid &&
+    (registrationForm.controls['firstName'].dirty || registrationForm.controls['firstName'].touched)">
+    <small style="color: red">password is required</small>
+  </ng-container>
+  <label for="lastname">Lastname</label>
+  <input id="lastname" formControlName="lastname" type="text">
+  <ng-container
+    *ngIf="registrationForm.controls['lastname'].invalid &&
+    (registrationForm.controls['lastname'].dirty || registrationForm.controls['lastname'].touched)">
+    <small style="color: red">lastname is required</small>
+  </ng-container>
+  <label for="email">Email</label>
+  <input id="email" formControlName="email" type="email">
+  <ng-container
+    *ngIf="registrationForm.controls['email'].invalid &&
+    (registrationForm.controls['email'].dirty || registrationForm.controls['email'].touched)">
+    <small style="color: red">email is required</small>
+  </ng-container>
+  <label for="password">Password</label>
+  <input id="password" formControlName="password" type="password">
+  <ng-container
+    *ngIf="registrationForm.controls['password'].invalid &&
+    (registrationForm.controls['password'].dirty || registrationForm.controls['password'].touched)">
+    <small style="color: red">password is required</small>
+  </ng-container>
+  <label for="repeatPassword">Repeat password</label>
+  <input id="repeatPassword" formControlName="repeatPassword" type="password">
+
+
+  <div [formGroup]="addressForm" class="address-form">
+    <label for="address1">Address 1:</label>
+    <input type="text" id="address1" formControlName="address1">
+    <ng-container
+      *ngIf="addressForm.controls['address1'].invalid &&
+    (addressForm.controls['address1'].dirty || addressForm.controls['address1'].touched)">
+      <small style="color: red">password is required</small>
+    </ng-container>
+    <label for="country">Address 2</label>
+    <select id="country" formControlName="country">
+      <option>Georgia</option>
+      <option>USA</option>
+      <option>France</option>
+      <option>German</option>
+      <option>Spain</option>
+    </select>
+    <ng-container
+      *ngIf="addressForm.controls['country'].invalid &&
+    (addressForm.controls['country'].dirty || addressForm.controls['country'].touched)">
+      <small style="color: red">country is required</small>
+    </ng-container>
+    <label for="zipCode">ZIP CODE</label>
+    <input id="zipCode" type="text" formControlName="zipCode">
+    <ng-container
+      *ngIf="addressForm.controls['zipCode'].invalid &&
+    (addressForm.controls['zipCode'].dirty || addressForm.controls['zipCode'].touched)">
+      <small style="color: red">zip code is required</small>
+    </ng-container>
+  </div>
+  <button type="submit" [disabled]="registrationForm.invalid">SUBMIT</button>
+
+
+</form>
+<a routerLink="/login" class="login-link">LOGIN</a>
